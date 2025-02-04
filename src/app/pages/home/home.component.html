@@ -1,0 +1,138 @@
+<div class="container">
+  <header>
+    <div class="logo-class">
+      <img src="/logo.png" class="logo-image" alt="logo" />
+      <h1>PSY</h1>
+    </div>
+    <div class="navigate">
+      <ul class="links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#our-services">Our Services</a></li>
+        <li><a href="#feedbacks">Feedback</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="account">
+        <div class="login">
+          <a routerLink="/login" routerLinkActive="active">Login</a>
+        </div>
+        <div class="sign-up">
+          <a routerLink="/signup" routerLinkActive="active">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="content">
+    <div class="text">
+      <div class="text-content">
+        <h1>Your Mental Health Matters !</h1>
+        <p>
+          Discover a supportive space where qualified psychiatrists are ready to
+          help you navigate life's challenges. Begin your journey to mental
+          wellness with personalized online sessions.
+        </p>
+        <a class="consult" href="">Consult Now</a>
+      </div>
+    </div>
+    <div class="image">
+      <img src="/conv.png" class="doctor-image" alt="doctor" />
+    </div>
+  </div>
+  <div class="patient">
+    <img class="smile-img" src="/smile-face.png" alt="smile" />
+    <div class="patient-text">
+      <h2>84k +</h2>
+      <p>Happy Patients</p>
+    </div>
+  </div>
+  <div class="check-up">
+    <div class="icon">
+      <mat-icon aria-hidden="false" fontIcon="done_all"></mat-icon>
+    </div>
+    <div class="patient-text">
+      <p>
+        Regular <br />
+        Checkup
+      </p>
+    </div>
+  </div>
+</div>
+<div id="our-services" class="service">
+  <div class="service-text">
+    <h1>Our Services</h1>
+    <div class="service-content">
+      <img class="service-image" src="/service.jpg" alt="" />
+      <p>
+        🌿 This application allows you to easily find a qualified psychologist
+        based on your needs and book a session in just a few clicks. With an
+        intuitive interface, you can create an account, browse professional
+        profiles, and choose a time slot that suits you. Consultations take
+        place online via chat or video call, ensuring confidentiality and
+        accessibility wherever you are. Our certified psychologists are here to
+        listen and support you on your journey to mental well-being. Whether
+        you're dealing with stress, anxiety, or other life challenges, PsyOnline
+        provides a safe and caring space. Take care of yourself today by
+        starting your first session. 🌟
+      </p>
+    </div>
+  </div>
+</div>
+<div id="feedbacks" class="feedbacks">
+  <app-feedback
+    [imgUrl]="'/sarah.jpg'"
+    [user]="'Sarah M.'"
+    [message]="
+      'PSY has been a life-changer for me! Finding a psychologist was so easy, and I was able to book a session in just minutes. The video consultation felt just like an in-person session, but from the comfort of my home. I finally have a safe space to talk and heal. Thank you!'
+    "
+  />
+  <app-feedback
+    [imgUrl]="'/James.png'"
+    [user]="'James R. '"
+    [message]="
+      'I was struggling with anxiety for months, and I didn’t know where to turn. PSY connected me with an amazing therapist who truly understands me. The platform is simple to use, and I love the flexibility of online sessions. I feel so much better now!'
+    "
+  />
+  <app-feedback
+    [imgUrl]="'/John.jpg'"
+    [user]="'John L.'"
+    [message]="
+      'As a busy student, I never had time for therapy, but PSY made it possible. Booking is effortless, and my psychologist is incredibly supportive. The online chat sessions help me express myself freely. I highly recommend this platform to anyone in need!'
+    "
+  />
+</div>
+<div id="contact" class="contact">
+  <div class="info">
+    <h1>Contact Us</h1>
+    <p>
+      Email, call or complete the form to learn how Snappy can solve your
+      messaging problem.
+    </p>
+    <p>psy&#64;gmail.com</p>
+    <p>321-221-231</p>
+  </div>
+  <div class="contact-form-container">
+    <div class="contact-form">
+      <h1>Get in Touch</h1>
+      <p>you can reach us anytime</p>
+      <form [formGroup]="contactForm" (ngSubmit)="submit()">
+        <input
+          formControlName="email"
+          id="email"
+          type="text"
+          placeholder="Email"
+        />
+        <textarea
+          formControlName="message"
+          placeholder="how can we help ?"
+          name="message"
+          id="message"
+          rows="10"
+        ></textarea>
+        <button type="submit">Submit</button>
+        <p>
+          By contacting us you agree to our
+          <strong>Terms of service</strong> and <strong>Privacy Policy</strong>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
