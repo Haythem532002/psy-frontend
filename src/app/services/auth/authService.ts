@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RegistrationRequest } from './Registration';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable } from 'rxjs';
 import { LoginRequest, LoginResponse } from './Login';
 
 @Injectable({
@@ -10,6 +10,13 @@ import { LoginRequest, LoginResponse } from './Login';
 export class AuthService {
   private apiUrl: string = 'http://localhost:7090/auth';
   constructor(private http: HttpClient) {}
+
+  isAuthenticated() {
+    return this.http.get(this.apiUrl + '/validate').pipe(
+      map(() => true),
+      catchError(() => [false])
+    );
+  }
   register(registrationRequest: RegistrationRequest): Observable<number> {
     return this.http.post<number>(
       this.apiUrl + '/register',
