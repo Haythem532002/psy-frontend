@@ -10,5 +10,5 @@ import { Component, input } from '@angular/core';
 export class FeedbackComponent {
   imgUrl = input('');
   message = input('');
-  user=input('')
+  user = input('');
 }

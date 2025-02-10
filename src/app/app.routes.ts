@@ -4,8 +4,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { DoctorHomeComponent } from './pages/doctor/doctor-home/doctor-home.component';
 import { ProtectedRouteComponent } from './pages/protected-route/protected-route.component';
-import { AuthGuard } from './services/auth/authGuard';
-import { GuestGuard } from './services/auth/guestGuard';
+import { AuthGuard } from './services/auth/authGuard.service';
+import { GuestGuard } from './services/auth/guestGuard.service';
 
 export const routes: Routes = [
   {

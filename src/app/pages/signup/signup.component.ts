@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { RegistrationRequest } from '../../services/auth/Registration';
-import { AuthService } from '../../services/auth/authService';
+import { RegistrationRequest } from '../../models/Registration';
+import { AuthService } from '../../services/auth/authService.service';
 
 @Component({
   selector: 'app-signup',

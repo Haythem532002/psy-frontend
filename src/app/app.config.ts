@@ -9,7 +9,7 @@ import {
   withInterceptors,
 } from '@angular/common/http';
 
-import { authIntercepting } from './services/auth/authInterceptor';
+import { authIntercepting } from './services/auth/authInterceptor.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
