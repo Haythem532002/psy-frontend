@@ -8,14 +8,17 @@ import {
   withFetch,
   withInterceptors,
 } from '@angular/common/http';
-
-import { authIntercepting } from './services/auth/authInterceptor.service';
+import { errorInterceptor } from './interceptors/error.interceptor';
+import { tokenInterceptor } from './interceptors/token.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimationsAsync(),
-    provideHttpClient(withFetch(), withInterceptors([authIntercepting])),
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([tokenInterceptor, errorInterceptor])
+    ),
   ],
 };

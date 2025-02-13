@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { RegistrationRequest } from '../../models/Registration';
-import { AuthService } from '../../services/auth/authService.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth/authService.service';
   styleUrl: './signup.component.css',
 })
 export class SignupComponent {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
   signUpForm = new FormGroup({
     firstname: new FormControl(''),
     lastname: new FormControl(''),
@@ -28,15 +28,6 @@ export class SignupComponent {
       password: this.signUpForm.get('password')?.value || '',
     };
 
-    this.authService.register(formData).subscribe(
-      (response) => {
-        console.log('Registration successful:', response);
-        // Handle success (optional)
-      },
-      (error) => {
-        console.error('Registration failed:', error);
-        // Handle error (optional)
-      }
-    );
+    this.authService.register(formData);
   }
 }
