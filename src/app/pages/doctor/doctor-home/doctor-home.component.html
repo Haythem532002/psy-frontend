@@ -35,5 +35,31 @@
       </div>
     </div>
   </div>
-  <div class="content"></div>
+  <div class="content">
+    <div class="content-container">
+      <h1>Doctors List</h1>
+      <div class="doctors-list">
+        <div class="card">
+          <app-doctor-card></app-doctor-card>
+        </div>
+        <div class="card">
+          <app-doctor-card></app-doctor-card>
+        </div>
+        <div class="card">
+          <app-doctor-card></app-doctor-card>
+        </div>
+        <div class="card">
+          <app-doctor-card></app-doctor-card>
+        </div>
+        <div class="card">
+          <app-doctor-card></app-doctor-card>
+        </div>
+        <div class="card">
+          <app-doctor-card></app-doctor-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-paginator [length]="100" [pageSize]="10" (page)="onPageChange($event)">
+  </mat-paginator>
 </div>

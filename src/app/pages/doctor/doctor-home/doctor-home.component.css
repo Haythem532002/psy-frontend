@@ -1,14 +1,9 @@
 .doctor-home-container {
-  width: 100vw;
-  background-color: #edf4ff;
-  position: relative;
   max-width: 100%;
-  min-height: 100vh;
 }
 
 .doctor-home-header {
   height: 15%;
-  display: flex;
   display: flex;
   justify-content: center;
   margin-bottom: 70px;
@@ -41,13 +36,11 @@
   align-items: center;
 }
 
-/* .doctor-home-links a {
-} */
-
 .doctor-home-links li a {
   margin: 15px;
   padding: 10px 15px;
   border-radius: 15px;
+  font-size: 1.2em;
 }
 
 .doctor-home-links li a:hover {
@@ -83,7 +76,46 @@
 }
 
 .content {
-  background-color: red;
   width: 100%;
-  height: 300px;
+}
+
+.content-container {
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+}
+
+.content-container h1 {
+  font-weight: 500;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.doctors-list {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 25%;
+}
+
+@media screen and (max-width: 730px) {
+  .card {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 731px) and (max-width: 922px) {
+  .card {
+    width: 50%;
+  }
+}
+
+mat-paginator {
+  display: flex;
+  justify-content: center;
+  font-size: large;
+  margin-top: 20px;
 }
