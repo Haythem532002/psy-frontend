@@ -1,9 +1,9 @@
 <div class="doctor-card">
   <img src="/psy-image.jpg" alt="image" />
   <div class="doctor-card-info">
-    <h3>Name : Haythem Khiari</h3>
-    <h4>Title : Psychiatre </h4>
-    <h4>Price: 80 Dinars</h4>
+    <h3>Name : {{ doctor()?.firstname }} {{ doctor()?.lastname }}</h3>
+    <h4>Title : {{ doctor()?.title }}</h4>
+    <h4>Price: {{ doctor()?.price }}</h4>
     <button>View</button>
   </div>
 </div>

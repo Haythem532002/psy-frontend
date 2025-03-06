@@ -1,4 +1,4 @@
-export interface Doctor {
+export type Doctor = {
   id: number;
   firstname: string;
   lastname: string;

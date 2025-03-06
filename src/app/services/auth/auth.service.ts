@@ -36,7 +36,7 @@ export class AuthService {
           document.cookie = `accesstoken=${response.accessToken}; path=/;`;
           document.cookie = `refreshtoken=${response.refreshToken}; path=/;`;
           // console.log('Success', response);
-          this.router.navigate(['/doctorHome']);
+          this.router.navigate(['/home']);
         },
         error: (error) => {
           console.log('Error is occured', error);

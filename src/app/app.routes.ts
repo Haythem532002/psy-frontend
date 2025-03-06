@@ -3,7 +3,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { DoctorHomeComponent } from './pages/doctor/doctor-home/doctor-home.component';
-import { ProtectedRouteComponent } from './pages/protected-route/protected-route.component';
 import { GuestGuard } from './guards/guest.guard';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -24,13 +23,8 @@ export const routes: Routes = [
     canActivate: [GuestGuard],
   },
   {
-    path: 'doctorHome',
+    path: 'home',
     component: DoctorHomeComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'protected',
-    component: ProtectedRouteComponent,
     canActivate: [AuthGuard],
   },
 ];
