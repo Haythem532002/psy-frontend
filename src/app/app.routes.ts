@@ -5,6 +5,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { DoctorHomeComponent } from './pages/doctor/doctor-home/doctor-home.component';
 import { GuestGuard } from './guards/guest.guard';
 import { AuthGuard } from './guards/auth.guard';
+import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,11 @@ export const routes: Routes = [
   {
     path: 'home',
     component: DoctorHomeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'doctor-details/:id',
+    component: DoctorDetailsComponent,
     canActivate: [AuthGuard],
   },
 ];

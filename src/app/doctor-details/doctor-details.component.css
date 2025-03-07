@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.doctor-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #f9f9f9;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.doctor-sidebar {
+  flex: 1;
+  max-width: 300px;
+  margin-right: 20px;
+}
+
+.doctor-sidebar img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-main {
+  flex: 2;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.doctor-main h1 {
+  margin-top: 0;
+  font-size: 28px;
+  color: #333;
+}
+
+.doctor-rating {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.doctor-rating .stars {
+  color: #f39c12;
+  font-size: 18px;
+}
+
+.doctor-rating .reviews {
+  margin-left: 10px;
+  color: #666;
+}
+
+.doctor-main p {
+  margin: 10px 0;
+  color: #666;
+}
+
+.doctor-main .education,
+.doctor-main .description,
+.doctor-main .price {
+  font-size: 16px;
+}
+
+.appointment-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.appointment-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .doctor-details-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .doctor-sidebar {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .doctor-main {
+    width: 100%;
+  }
+}

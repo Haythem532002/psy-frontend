@@ -99,6 +99,7 @@
 
 .card {
   width: 25%;
+  display: flex;
 }
 
 @media screen and (max-width: 730px) {

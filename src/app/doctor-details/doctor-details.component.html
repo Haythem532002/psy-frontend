@@ -1,0 +1,16 @@
+<div class="doctor-details-container">
+  <div class="doctor-sidebar">
+    <img [src]="doctor.imageUrl" alt="Doctor Image">
+  </div>
+  <div class="doctor-main">
+    <h1>{{ doctor.firstName }} {{ doctor.lastName }}</h1>
+    <div class="doctor-rating">
+      <span class="stars">★★★★☆</span>
+      <span class="reviews">(362 reviews)</span>
+    </div>
+    <p class="education"><strong>Education:</strong> {{ doctor.education }}</p>
+    <p class="description"><strong>Description:</strong> {{ doctor.description }}</p>
+    <p class="price"><strong>Price:</strong> ${{ doctor.price }}</p>
+    <button>Prendre un rendez-vous</button>
+  </div>
+</div>

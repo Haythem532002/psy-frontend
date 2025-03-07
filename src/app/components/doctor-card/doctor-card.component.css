@@ -4,6 +4,9 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .doctor-card img {
@@ -14,6 +17,7 @@
 .doctor-card-info {
   padding: 15px;
   text-align: center;
+  flex-grow: 1;
 }
 
 .doctor-card h3 {
