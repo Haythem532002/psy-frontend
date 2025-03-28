@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { DoctorCardComponent } from '../../../components/doctor-card/doctor-card.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { DoctorService } from '../../../services/auth/doctor.service';
+import { DoctorService } from '../../../services/doctor/doctor.service';
 import { CommonModule } from '@angular/common';
 import { Doctor } from '../../../models/Doctor';
 @Component({
