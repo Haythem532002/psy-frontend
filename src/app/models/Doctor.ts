@@ -11,4 +11,6 @@ export type Doctor = {
   price: number;
   title: string;
   description: string;
-}
+  imageUrl: string;
+  education: string;
+};

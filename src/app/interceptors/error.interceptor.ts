@@ -12,14 +12,11 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   const refreshToken = getCookie('refreshtoken');
   return next(req).pipe(
     catchError((err) => {
-      if (err.status === 403) {
+      if (err.status === 403 || err.status === 401) {
         if (refreshToken !== null) {
           if (!authService.isAuthenticated({ token: refreshToken })) {
-            document.cookie =
-              'accesstoken=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT;';
-            document.cookie =
-              'refreshtoken=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT;';
-
+            document.cookie = 'accesstoken=; path=/;';
+            document.cookie = 'refreshtoken=; path=/;';
             router.navigate(['/login']);
           } else {
             return authService.refresh({ refreshToken: refreshToken }).pipe(

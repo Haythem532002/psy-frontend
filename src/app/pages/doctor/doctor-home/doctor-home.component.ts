@@ -5,6 +5,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { DoctorService } from '../../../services/doctor/doctor.service';
 import { CommonModule } from '@angular/common';
 import { Doctor } from '../../../models/Doctor';
+import { NavbarComponent } from '../../../components/navbar/navbar.component';
 @Component({
   selector: 'app-doctor-home',
   standalone: true,
@@ -13,6 +14,7 @@ import { Doctor } from '../../../models/Doctor';
     DoctorCardComponent,
     MatPaginatorModule,
     CommonModule,
+    NavbarComponent,
   ],
   templateUrl: './doctor-home.component.html',
   styleUrl: './doctor-home.component.css',

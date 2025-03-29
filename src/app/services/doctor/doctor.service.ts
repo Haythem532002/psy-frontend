@@ -10,4 +10,9 @@ export class DoctorService {
   getDoctorByPage(page: number, size: number) {
     return this.http.get(this.apiUrl + `/all?page=${page}&size=${size}`);
   }
+
+  getDoctorById(id: number) {
+    return this.http.get(this.apiUrl + `/${id}`);
+  }
+  
 }
