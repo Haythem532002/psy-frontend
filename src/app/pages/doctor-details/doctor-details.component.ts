@@ -14,6 +14,8 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 export class DoctorDetailsComponent {
   doctor!: Doctor;
 
+  showModal: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private doctorService: DoctorService
@@ -26,5 +28,13 @@ export class DoctorDetailsComponent {
       .subscribe((doctor: any) => {
         this.doctor = doctor;
       });
+  }
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 }

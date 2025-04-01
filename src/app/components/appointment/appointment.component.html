@@ -1,0 +1,61 @@
+@if(showModal()) {
+<div class="modal">
+  <div class="modal-content">
+    <h1>Book An Appointment</h1>
+    <form action="">
+      <div class="form-group">
+        <label>Type of Appointment :</label>
+        <div class="radio-group">
+          <label
+            ><input
+              type="radio"
+              name="AppointmentType"
+              value="INPERSON"
+              [(ngModel)]="AppointmentType"
+            />In-Peron</label
+          >
+          <br />
+          <label
+            ><input
+              type="radio"
+              name="AppointmentType"
+              value="ONLINE"
+              [(ngModel)]="AppointmentType"
+            />Online</label
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Date And Hour :</label>
+        <table>
+          <thead>
+            <tr>
+              <th>Jour</th>
+              <th *ngFor="let time of TimeSlots">{{ time }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let day of DaysOfWeek; let i = index">
+              <td>{{ day }}</td>
+              <td *ngFor="let time of TimeSlots; let j = index">
+                <input
+                  type="radio"
+                  [disabled]="isSessionBooked(i, j)"
+                  [checked]="isSessionChecked(i, j)"
+                  (change)="onCheckboxChange(i, j)"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="form-group">
+        <button (click)="bookAppointment()">Book</button>
+        <button (click)="onCloseModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+}
