@@ -9,8 +9,9 @@ export class AppointmentBookService {
   private data = new BehaviorSubject<any>(null);
   currentData = this.data.asObservable();
 
+  constructor() {}
+
   setData(newData: AppointmentBook) {
     this.data.next(newData);
   }
-  constructor() {}
 }

@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Doctor } from '../../models/Doctor';
-import { DoctorService } from '../../services/doctor/doctor.service';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { AppointmentComponent } from '../../../components/appointment/appointment.component';
+import { NavbarComponent } from '../../../components/navbar/navbar.component';
+import { Doctor } from '../../../models/Doctor';
+import { DoctorService } from '../../../services/doctor/doctor.service';
+
 
 @Component({
   selector: 'app-doctor-details',
   standalone: true,
-  imports: [NavbarComponent],
+  imports: [NavbarComponent, AppointmentComponent],
   templateUrl: './doctor-details.component.html',
   styleUrl: './doctor-details.component.css',
 })

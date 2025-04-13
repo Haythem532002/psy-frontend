@@ -1,22 +1,28 @@
 import { Component, EventEmitter, input, Output } from '@angular/core';
-import { TimeSlots } from '../../constants/AppointmentConstants';
+import { DaysOfWeek, TimeSlots } from '../../constants/AppointmentConstants';
 import { getFirstAndLastDayOfWeek } from '../../utils/dateUtils';
 import { AppointmentBookService } from '../../services/shared/appointment-book.service';
 import { AppointmentBook } from '../../models/AppointmentBook';
 import { Doctor } from '../../models/Doctor';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-appointment',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, CommonModule],
   templateUrl: './appointment.component.html',
   styleUrl: './appointment.component.css',
 })
 export class AppointmentComponent {
   @Output() closeModal = new EventEmitter<void>();
   doctor = input<Doctor>();
+  showModal = input<boolean>(false);
 
   AppointmentType: string = 'Online';
+
+  TimeSlots = TimeSlots;
+  DaysOfWeek = DaysOfWeek;
 
   selectedSessionIndex: number | null = null;
 
@@ -40,14 +46,14 @@ export class AppointmentComponent {
   }
 
   onCheckboxChange(day: number, time: number) {
-    this.selectedSessionIndex = day * TimeSlots.length + time;
+    this.selectedSessionIndex = day * this.TimeSlots.length + time;
   }
 
   bookAppointment() {
     if (this.selectedSessionIndex !== null) {
       const day = Math.floor(this.selectedSessionIndex / TimeSlots.length);
-      const time = this.selectedSessionIndex % TimeSlots.length;
-      const timeString = TimeSlots[time];
+      const time = this.selectedSessionIndex % this.TimeSlots.length;
+      const timeString = this.TimeSlots[time];
       const [hours, minutes] = timeString.split('-')[0].split('h');
       const [firstDayOfWeek, lastDayOfWeek] = getFirstAndLastDayOfWeek();
       const actualDate = new Date();

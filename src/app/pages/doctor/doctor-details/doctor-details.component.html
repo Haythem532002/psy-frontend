@@ -28,6 +28,9 @@
     </p>
     <p class="doctor-price"><strong>Price:</strong> ${{ doctor.price }}</p>
 
-    <button class="appointment-button">Book Appointment</button>
+    <button class="appointment-button" (click)="openModal()">
+      Book Appointment
+    </button>
   </div>
 </div>
+<app-appointment [doctor]="doctor" [showModal]="showModal" (closeModal)="closeModal()" />

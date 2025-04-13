@@ -5,7 +5,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { DoctorHomeComponent } from './pages/doctor/doctor-home/doctor-home.component';
 import { GuestGuard } from './guards/guest.guard';
 import { AuthGuard } from './guards/auth.guard';
-import { DoctorDetailsComponent } from './pages/doctor-details/doctor-details.component';
+import { DoctorDetailsComponent } from './pages/doctor/doctor-details/doctor-details.component';
 
 export const routes: Routes = [
   {
