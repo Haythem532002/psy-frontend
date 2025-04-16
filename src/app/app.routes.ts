@@ -6,6 +6,9 @@ import { DoctorHomeComponent } from './pages/doctor/doctor-home/doctor-home.comp
 import { GuestGuard } from './guards/guest.guard';
 import { AuthGuard } from './guards/auth.guard';
 import { DoctorDetailsComponent } from './pages/doctor/doctor-details/doctor-details.component';
+import { PaymentComponent } from './pages/payment/payment.component';
+import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
+import { PaymentFailComponent } from './pages/payment-fail/payment-fail.component';
 
 export const routes: Routes = [
   {
@@ -33,4 +36,10 @@ export const routes: Routes = [
     component: DoctorDetailsComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'payment',
+    component: PaymentComponent,
+  },
+  { path: 'payment/success', component: PaymentSuccessComponent },
+  { path: 'payment/fail', component: PaymentFailComponent },
 ];

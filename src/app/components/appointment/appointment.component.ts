@@ -6,6 +6,8 @@ import { AppointmentBook } from '../../models/AppointmentBook';
 import { Doctor } from '../../models/Doctor';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PaymentService } from '../../services/shared/payment.service';
 
 @Component({
   selector: 'app-appointment',
@@ -35,7 +37,11 @@ export class AppointmentComponent {
     [false, false, false, false, false, false],
   ];
 
-  constructor(private appointmentBookService: AppointmentBookService) {}
+  constructor(
+    private appointmentBookService: AppointmentBookService,
+    private router: Router,
+    private paymentService: PaymentService
+  ) {}
 
   isSessionBooked(day: number, time: number): boolean {
     return this.bookedSessions[day][time];
@@ -72,6 +78,14 @@ export class AppointmentComponent {
         appointmentType: this.AppointmentType,
         doctor: this.doctor()!,
       };
+      this.paymentService.createCheckoutSession().subscribe({
+        next: (res) => {
+          window.location.href = res.payment_url;
+        },
+        error: (err) => {
+          console.error('Error creating checkout session:', err);
+        },
+      });
     } else {
       alert('Please select a session to book.');
     }
