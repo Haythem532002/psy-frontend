@@ -20,10 +20,33 @@ export class AuthService {
       .subscribe({
         next: (response) => {
           this.router.navigate(['/login']);
-          // console.log('Success', response);
         },
         error: (error) => {
           console.log('Error: ', error);
+        },
+      });
+  }
+
+  // saveUserId(email: string) {
+  //   this.http
+  //     .get<number>(`http://localhost:7090/users/email/?email=${email}`)
+  //     .subscribe((id) => {
+  //       localStorage.setItem('userId', String(id));
+  //       this.router.navigate(['/home']);
+  //     });
+  // }
+
+  saveUserId(email: string) {
+    console.log('Calling saveUserId for:', email);
+    this.http
+      .get<number>(`http://localhost:7090/users/email/?email=${email}`)
+      .subscribe({
+        next: (id) => {
+          console.log('Received userId:', id);
+          localStorage.setItem('userId', String(id));
+        },
+        error: (err) => {
+          console.error('Failed to get userId:', err);
         },
       });
   }
@@ -35,8 +58,9 @@ export class AuthService {
         next: (response) => {
           document.cookie = `accesstoken=${response.accessToken}; path=/;`;
           document.cookie = `refreshtoken=${response.refreshToken}; path=/;`;
-          // console.log('Success', response);
-          this.router.navigate(['/home']);
+          this.router.navigate(['/home'], {
+            state: { email: loginRequest.email }
+          });
         },
         error: (error) => {
           console.log('Error is occured', error);

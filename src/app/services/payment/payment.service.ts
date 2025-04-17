@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AppointmentBook } from '../../models/AppointmentBook';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +10,10 @@ export class PaymentService {
 
   constructor(private http: HttpClient) {}
 
-  createCheckoutSession() {
-    return this.http.get<{ payment_url: string }>(
-      `${this.baseUrl}/create-checkout`
+  createCheckoutSession(appointmentBook: AppointmentBook) {
+    return this.http.post<{ payment_url: string }>(
+      `${this.baseUrl}/create-checkout`,
+      { appointmentBook }
     );
   }
 }

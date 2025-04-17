@@ -40,6 +40,12 @@ export const routes: Routes = [
     path: 'payment',
     component: PaymentComponent,
   },
-  { path: 'payment/success', component: PaymentSuccessComponent },
-  { path: 'payment/fail', component: PaymentFailComponent },
+  {
+    path: 'payment/success',
+    component: PaymentSuccessComponent,
+  },
+  {
+    path: 'payment/fail',
+    component: PaymentFailComponent,
+  },
 ];

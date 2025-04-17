@@ -6,6 +6,7 @@ import { DoctorService } from '../../../services/doctor/doctor.service';
 import { CommonModule } from '@angular/common';
 import { Doctor } from '../../../models/Doctor';
 import { NavbarComponent } from '../../../components/navbar/navbar.component';
+import { UserService } from '../../../services/user/user.service';
 @Component({
   selector: 'app-doctor-home',
   standalone: true,
@@ -20,7 +21,10 @@ import { NavbarComponent } from '../../../components/navbar/navbar.component';
   styleUrl: './doctor-home.component.css',
 })
 export class DoctorHomeComponent {
-  constructor(private doctorService: DoctorService) {}
+  constructor(
+    private doctorService: DoctorService,
+    private userService: UserService
+  ) {}
   page = 1;
   size = 8;
 
@@ -44,5 +48,8 @@ export class DoctorHomeComponent {
 
   ngOnInit() {
     this.search();
+    const email = window.history.state.email;
+    console.log('Here ', email);
+    this.userService.saveUserId(email);
   }
 }

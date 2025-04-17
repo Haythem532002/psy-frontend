@@ -7,7 +7,8 @@ import { Doctor } from '../../models/Doctor';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PaymentService } from '../../services/shared/payment.service';
+import { PaymentService } from '../../services/payment/payment.service';
+import { getCookie } from '../../utils/getCookie';
 
 @Component({
   selector: 'app-appointment',
@@ -73,12 +74,15 @@ export class AppointmentComponent {
       if (selectedDate < actualDate) {
         alert('Please select a future date.');
       }
+      const userId = getCookie('userId');
       const appointmentData: AppointmentBook = {
+        userId: Number(userId),
         appointmentDateTime: selectedDate,
         appointmentType: this.AppointmentType,
-        doctor: this.doctor()!,
+        doctorId: this.doctor()!.id,
+        price: this.doctor()!.price,
       };
-      this.paymentService.createCheckoutSession().subscribe({
+      this.paymentService.createCheckoutSession(appointmentData).subscribe({
         next: (res) => {
           window.location.href = res.payment_url;
         },
