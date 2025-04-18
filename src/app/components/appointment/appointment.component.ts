@@ -77,10 +77,10 @@ export class AppointmentComponent {
       const userId = getCookie('userId');
       const appointmentData: AppointmentBook = {
         userId: Number(userId),
-        appointmentDateTime: selectedDate,
+        appointmentDateTime: selectedDate.toDateString(),
         appointmentType: this.AppointmentType,
         doctorId: this.doctor()!.id,
-        price: this.doctor()!.price,
+        price: this.doctor()!.price ?? 5000, // fallback to $50
       };
       this.paymentService.createCheckoutSession(appointmentData).subscribe({
         next: (res) => {

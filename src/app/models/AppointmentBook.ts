@@ -4,7 +4,7 @@ import { User } from './User';
 export interface AppointmentBook {
   userId?: number;
   appointmentType: string;
-  appointmentDateTime: Date;
+  appointmentDateTime: String;
   doctorId: number;
   price:number;
 }

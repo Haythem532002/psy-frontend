@@ -10,10 +10,10 @@ export class PaymentService {
 
   constructor(private http: HttpClient) {}
 
-  createCheckoutSession(appointmentBook: AppointmentBook) {
+  createCheckoutSession(appointmentRequest: AppointmentBook) {
     return this.http.post<{ payment_url: string }>(
       `${this.baseUrl}/create-checkout`,
-      { appointmentBook }
+      appointmentRequest
     );
   }
 }
