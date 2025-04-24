@@ -16,6 +16,9 @@
   border-radius: 5px;
   width: 800px;
 }
+.modal-content h1 {
+  padding-bottom: 20px;
+}
 
 .form-group {
   margin-bottom: 15px;

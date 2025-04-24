@@ -70,3 +70,9 @@
 .white-icon {
   color: white;
 }
+
+
+.active {
+  background-color: #2aa7ff;
+  color: white;
+}

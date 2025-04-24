@@ -1,0 +1,39 @@
+.payment-fail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8d7da;
+}
+
+.payment-fail-box {
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f5c6cb;
+}
+
+.payment-fail-box h1 {
+  color: #721c24;
+  margin-bottom: 10px;
+}
+
+.payment-fail-box p {
+  color: #721c24;
+  margin-bottom: 20px;
+}
+
+.home-link {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  background-color: #007bff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.home-link:hover {
+  background-color: #0056b3;
+}

@@ -77,7 +77,7 @@ export class AppointmentComponent {
       const userId = getCookie('userId');
       const appointmentData: AppointmentBook = {
         userId: Number(userId),
-        appointmentDateTime: selectedDate.toDateString(),
+        appointmentDateTime: selectedDate.toISOString(),
         appointmentType: this.AppointmentType,
         doctorId: this.doctor()!.id,
         price: this.doctor()!.price ?? 5000, // fallback to $50

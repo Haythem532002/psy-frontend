@@ -9,6 +9,8 @@ import { DoctorDetailsComponent } from './pages/doctor/doctor-details/doctor-det
 import { PaymentComponent } from './pages/payment/payment.component';
 import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 import { PaymentFailComponent } from './pages/payment-fail/payment-fail.component';
+import { AppointmentListComponent } from './pages/appointment-list/appointment-list.component';
+import { PaymentHistoryComponent } from './pages/payment-history/payment-history.component';
 
 export const routes: Routes = [
   {
@@ -41,11 +43,15 @@ export const routes: Routes = [
     component: PaymentComponent,
   },
   {
-    path: 'payment/success',
-    component: PaymentSuccessComponent,
-  },
-  {
     path: 'payment/fail',
     component: PaymentFailComponent,
+  },
+  {
+    path: 'appointments',
+    component: AppointmentListComponent,
+  },
+  {
+    path: 'payment-history',
+    component: PaymentHistoryComponent,
   },
 ];
