@@ -58,7 +58,7 @@ export class AuthService {
         next: (response) => {
           document.cookie = `accesstoken=${response.accessToken}; path=/;`;
           document.cookie = `refreshtoken=${response.refreshToken}; path=/;`;
-          this.router.navigate(['/home'], {
+          this.router.navigate(['/home/doctor-list'], {
             state: { email: loginRequest.email }
           });
         },

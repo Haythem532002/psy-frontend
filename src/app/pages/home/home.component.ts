@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FeedbackComponent } from '../../components/feedback/feedback.component';
 
 @Component({
@@ -13,6 +13,7 @@ import { FeedbackComponent } from '../../components/feedback/feedback.component'
     ReactiveFormsModule,
     RouterLink,
     RouterLinkActive,
+    RouterOutlet,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

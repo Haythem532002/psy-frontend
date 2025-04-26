@@ -1,15 +1,6 @@
 <div class="doctor-home-container">
   <app-navbar></app-navbar>
   <div class="content">
-    <div class="content-container">
-      <h1>Doctors List</h1>
-      <div class="doctors-list">
-        <div class="card" *ngFor="let doctor of doctors">
-          <app-doctor-card [doctor]="doctor"></app-doctor-card>
-        </div>
-      </div>
-    </div>
+    <router-outlet></router-outlet>
   </div>
-  <mat-paginator [length]="100" [pageSize]="10" (page)="onPageChange($event)">
-  </mat-paginator>
 </div>

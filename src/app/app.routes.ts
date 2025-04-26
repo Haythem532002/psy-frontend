@@ -6,16 +6,15 @@ import { DoctorHomeComponent } from './pages/doctor/doctor-home/doctor-home.comp
 import { GuestGuard } from './guards/guest.guard';
 import { AuthGuard } from './guards/auth.guard';
 import { DoctorDetailsComponent } from './pages/doctor/doctor-details/doctor-details.component';
-import { PaymentComponent } from './pages/payment/payment.component';
-import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 import { PaymentFailComponent } from './pages/payment-fail/payment-fail.component';
 import { AppointmentListComponent } from './pages/appointment-list/appointment-list.component';
 import { PaymentHistoryComponent } from './pages/payment-history/payment-history.component';
+import { DoctorListComponent } from './pages/doctor/doctor-list/doctor-list.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: HomeComponent, // Landing page
     canActivate: [GuestGuard],
   },
   {
@@ -32,26 +31,19 @@ export const routes: Routes = [
     path: 'home',
     component: DoctorHomeComponent,
     canActivate: [AuthGuard],
-  },
-  {
-    path: 'doctor-details/:id',
-    component: DoctorDetailsComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'payment',
-    component: PaymentComponent,
+    children: [
+      { path: '', redirectTo: 'doctor-list', pathMatch: 'full' },
+      { path: 'doctor-list', component: DoctorListComponent },
+      {
+        path: 'doctor-details/:id',
+        component: DoctorDetailsComponent,
+      },
+      { path: 'appointments', component: AppointmentListComponent },
+      { path: 'payment-history', component: PaymentHistoryComponent },
+    ],
   },
   {
     path: 'payment/fail',
     component: PaymentFailComponent,
-  },
-  {
-    path: 'appointments',
-    component: AppointmentListComponent,
-  },
-  {
-    path: 'payment-history',
-    component: PaymentHistoryComponent,
   },
 ];

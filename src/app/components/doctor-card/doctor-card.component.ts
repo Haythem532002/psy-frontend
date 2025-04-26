@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
   styleUrl: './doctor-card.component.css',
 })
 export class DoctorCardComponent {
-  constructor (private router: Router) {}
+  constructor(private router: Router) {}
   doctor = input<Doctor>();
   viewDoctor() {
-    this.router.navigate(['/doctor-details', this.doctor()?.id]);
+    this.router.navigate(['/home/doctor-details', this.doctor()?.id]);
   }
 }
