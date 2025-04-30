@@ -38,11 +38,6 @@
   border-radius: 15px;
   font-size: 1.2em;
 }
-
-.doctor-home-links li a:hover {
-  color: #2aa7ff;
-}
-
 .user-info {
   display: flex;
   align-items: center;

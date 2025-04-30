@@ -1,0 +1,13 @@
+<div class="appointment-card">
+  <div class="card-details">
+    <h3>{{ appointment.doctor.firstname }} {{ appointment.doctor.lastname }}</h3>
+    <p>
+      {{ date }} at {{ time }}
+    </p>
+  </div>
+  <div class="card-actions">
+    <button [disabled]="!isButtonEnabled" class="btn btn-primary">
+      Start Video Chat
+    </button>
+  </div>
+</div>

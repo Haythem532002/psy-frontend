@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Appointment } from '../../models/Appointment';
+import { getCookie } from '../../utils/getCookie';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +15,13 @@ export class UserService {
       .subscribe((id) => {
         document.cookie = `userId=${id}; path=/;`;
       });
+  }
+
+  getAvailableAppointments() {
+    const id = getCookie('userId');
+    console.log("id "+ id);
+    return this.http.get<Appointment[]>(
+      `http://localhost:7090/users/appointments/${id}`
+    );
   }
 }

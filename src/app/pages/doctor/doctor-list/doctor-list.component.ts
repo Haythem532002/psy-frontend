@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Doctor } from '../../../models/Doctor';
 import { DoctorService } from '../../../services/doctor/doctor.service';
 import { UserService } from '../../../services/user/user.service';

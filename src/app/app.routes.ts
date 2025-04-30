@@ -10,6 +10,7 @@ import { PaymentFailComponent } from './pages/payment-fail/payment-fail.componen
 import { AppointmentListComponent } from './pages/appointment-list/appointment-list.component';
 import { PaymentHistoryComponent } from './pages/payment-history/payment-history.component';
 import { DoctorListComponent } from './pages/doctor/doctor-list/doctor-list.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -45,5 +46,9 @@ export const routes: Routes = [
   {
     path: 'payment/fail',
     component: PaymentFailComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   },
 ];

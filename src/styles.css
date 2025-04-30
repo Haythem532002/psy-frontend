@@ -27,3 +27,9 @@ body {
 button {
   cursor: pointer;
 }
+
+.content-container {
+  margin-left: 7%;
+  margin-right: 7%;
+  width: 86%;
+}

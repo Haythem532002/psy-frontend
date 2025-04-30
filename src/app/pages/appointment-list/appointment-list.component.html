@@ -1,1 +1,9 @@
-<p>appointment-list works!</p>
+<div class="content-container">
+  <h1>Upcoming Appointments</h1>
+  <app-appointment-card
+    *ngFor="let appointment of appointments$"
+    [appointment]="appointment"
+  >
+  </app-appointment-card>
+  <p *ngIf="appointments$.length === 0">No upcoming appointments.</p>
+</div>
