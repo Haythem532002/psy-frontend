@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Appointment } from '../../models/Appointment';
 import { getCookie } from '../../utils/getCookie';
+import { PaymentHistory } from '../../models/PaymentHistory';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +23,13 @@ export class UserService {
     console.log("id "+ id);
     return this.http.get<Appointment[]>(
       `http://localhost:7090/users/appointments/${id}`
+    );
+  }
+
+  getPaymentHistory() {
+    const id = getCookie('userId');
+    return this.http.get<PaymentHistory[]>(
+      `http://localhost:7090/users/payment-history/${id}`
     );
   }
 }

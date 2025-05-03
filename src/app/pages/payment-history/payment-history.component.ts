@@ -1,12 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user/user.service';
+import { PaymentHistory } from '../../models/PaymentHistory';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-payment-history',
-  standalone: true,
-  imports: [],
   templateUrl: './payment-history.component.html',
-  styleUrl: './payment-history.component.css'
+  styleUrls: ['./payment-history.component.css'],
+  imports: [CommonModule],
+  standalone: true,
 })
-export class PaymentHistoryComponent {
+export class PaymentHistoryComponent implements OnInit {
+  payments: PaymentHistory[] = [];
 
+  constructor(private userService: UserService) {}
+
+  ngOnInit(): void {
+    this.loadPaymentHistory();
+  }
+
+  loadPaymentHistory(): void {
+    this.userService.getPaymentHistory().subscribe({
+      next: (response: PaymentHistory[]) => {
+        this.payments = response;
+        console.log(this.payments);
+      },
+      error: (error) => {
+        console.error('Error fetching payment history:', error);
+      },
+    });
+  }
 }

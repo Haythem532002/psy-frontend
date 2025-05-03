@@ -1,4 +1,20 @@
 <div class="content-container">
   <h1>History of Payments</h1>
-  
+  <div class="payment-history">
+    <div class="payment-item" *ngFor="let payment of payments">
+      <div class="payment-details">
+        <h3>Doctor: {{ payment.doctorName }}</h3>
+        <p>
+          <strong>Payment Date:</strong>
+          {{ payment.paymentDate | date : "medium" }}
+        </p>
+        <p>
+          <strong>Appointment Date:</strong>
+          {{ payment.appointmentDate | date : "medium" }}
+        </p>
+        <p><strong>Appointment Type:</strong> {{ payment.appointmentType }}</p>
+      </div>
+    </div>
+    <p *ngIf="payments.length === 0">No payment history available.</p>
+  </div>
 </div>

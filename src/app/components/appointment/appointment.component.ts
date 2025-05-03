@@ -73,23 +73,24 @@ export class AppointmentComponent {
       );
       if (selectedDate < actualDate) {
         alert('Please select a future date.');
+      } else {
+        const userId = getCookie('userId');
+        const appointmentData: AppointmentBook = {
+          userId: Number(userId),
+          appointmentDateTime: selectedDate.toISOString(),
+          appointmentType: this.AppointmentType,
+          doctorId: this.doctor()!.id,
+          price: this.doctor()!.price ?? 5000, // fallback to $50
+        };
+        this.paymentService.createCheckoutSession(appointmentData).subscribe({
+          next: (res) => {
+            window.location.href = res.payment_url;
+          },
+          error: (err) => {
+            console.error('Error creating checkout session:', err);
+          },
+        });
       }
-      const userId = getCookie('userId');
-      const appointmentData: AppointmentBook = {
-        userId: Number(userId),
-        appointmentDateTime: selectedDate.toISOString(),
-        appointmentType: this.AppointmentType,
-        doctorId: this.doctor()!.id,
-        price: this.doctor()!.price ?? 5000, // fallback to $50
-      };
-      this.paymentService.createCheckoutSession(appointmentData).subscribe({
-        next: (res) => {
-          window.location.href = res.payment_url;
-        },
-        error: (err) => {
-          console.error('Error creating checkout session:', err);
-        },
-      });
     } else {
       alert('Please select a session to book.');
     }
