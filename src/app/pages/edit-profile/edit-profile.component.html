@@ -1,0 +1,74 @@
+<div class="content-container">
+  <div class="edit-profile">
+    <h1>Account Settings</h1>
+    <div class="profile-container">
+      <div class="profile-sidebar">
+        <img
+          [src]="user.image || '/default-profile.png'"
+          alt="Profile Picture"
+          class="profile-picture"
+        />
+        <input
+          type="file"
+          (change)="onImageChange($event)"
+          class="image-upload"
+        />
+        <ul class="profile-menu">
+          <li class="active">Account Details</li>
+          <li>Change Password</li>
+        </ul>
+      </div>
+      <div class="profile-details">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              id="email"
+              [(ngModel)]="user.email"
+              name="email"
+              disabled
+            />
+          </div>
+          <div class="form-group">
+            <label for="firstName">First name</label>
+            <input
+              type="text"
+              id="firstName"
+              [(ngModel)]="user.firstName"
+              name="firstName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input
+              type="text"
+              id="lastName"
+              [(ngModel)]="user.lastName"
+              name="lastName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="birthday">Birthday</label>
+            <input
+              type="date"
+              id="birthday"
+              [(ngModel)]="user.birthday"
+              name="birthday"
+            />
+          </div>
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input
+              type="text"
+              id="location"
+              [(ngModel)]="user.location"
+              name="location"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

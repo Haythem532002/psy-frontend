@@ -9,10 +9,14 @@
         <a routerLink="/home/doctor-list" routerLinkActive="active">Doctors</a>
       </li>
       <li>
-        <a routerLink="/home/appointments" routerLinkActive="active">Appointments</a>
+        <a routerLink="/home/appointments" routerLinkActive="active"
+          >Appointments</a
+        >
       </li>
       <li>
-        <a routerLink="/home/payment-history" routerLinkActive="active">Payments</a>
+        <a routerLink="/home/payment-history" routerLinkActive="active"
+          >Payments</a
+        >
       </li>
     </ul>
     <div class="user-info">
@@ -24,8 +28,14 @@
           class="white-icon"
         ></mat-icon>
       </div>
-      <div class="user-details">
+      <div class="user-details" (click)="toggleMenu()">
         <img src="/settings-icon.png" alt="settings" style="max-width: 100%" />
+        <div class="menu" *ngIf="menuVisible">
+          <ul>
+            <li (click)="navigateToEditProfile()">Edit Profile</li>
+            <li (click)="logout()">Logout</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

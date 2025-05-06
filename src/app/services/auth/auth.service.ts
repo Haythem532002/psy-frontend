@@ -6,6 +6,7 @@ import { LoginRequest, LoginResponse } from '../../models/Login';
 import { Router } from '@angular/router';
 import { ValidateRequest } from '../../models/Validate';
 import { RefreshRequest } from '../../models/Refresh';
+import { getCookie } from '../../utils/getCookie';
 
 @Injectable({
   providedIn: 'root',
@@ -26,16 +27,6 @@ export class AuthService {
         },
       });
   }
-
-  // saveUserId(email: string) {
-  //   this.http
-  //     .get<number>(`http://localhost:7090/users/email/?email=${email}`)
-  //     .subscribe((id) => {
-  //       localStorage.setItem('userId', String(id));
-  //       this.router.navigate(['/home']);
-  //     });
-  // }
-
   saveUserId(email: string) {
     console.log('Calling saveUserId for:', email);
     this.http
@@ -50,7 +41,6 @@ export class AuthService {
         },
       });
   }
-
   login(loginRequest: LoginRequest) {
     this.http
       .post<LoginResponse>(this.apiUrl + '/login', loginRequest)
@@ -91,5 +81,23 @@ export class AuthService {
           return response;
         })
       );
+  }
+  logout() {
+    const refreshToken = getCookie('refreshtoken');
+    this.http.post(this.apiUrl + '/logout', refreshToken).subscribe({
+      next: (response) => {
+        console.log('Logout successful:', response);
+        document.cookie = 'accesstoken=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+        document.cookie = 'refreshtoken=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+        localStorage.removeItem('userId');
+        this.router.navigate(['/login']);
+      },
+      error: (error) => {
+        console.log('Error during logout:', error);
+      },
+      complete: () => {
+        console.log('Logout request completed');
+      }
+    });
   }
 }

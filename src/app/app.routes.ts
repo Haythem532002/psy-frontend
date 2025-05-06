@@ -11,6 +11,7 @@ import { AppointmentListComponent } from './pages/appointment-list/appointment-l
 import { PaymentHistoryComponent } from './pages/payment-history/payment-history.component';
 import { DoctorListComponent } from './pages/doctor/doctor-list/doctor-list.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 
 export const routes: Routes = [
   {
@@ -41,6 +42,7 @@ export const routes: Routes = [
       },
       { path: 'appointments', component: AppointmentListComponent },
       { path: 'payment-history', component: PaymentHistoryComponent },
+      { path: 'edit-profile', component: EditProfileComponent },
     ],
   },
   {
