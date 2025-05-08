@@ -14,5 +14,13 @@ export class DoctorService {
   getDoctorById(id: number) {
     return this.http.get(this.apiUrl + `/${id}`);
   }
+
+  getDoctosCount() {
+    return this.http.get(this.apiUrl + '/count');
+  }
+
+  searchDoctorPage(page: number, size: number,name: any,price:number,gender:string) {
+    return this.http.get(this.apiUrl + `/search?page=${page}&size=${size}&name=${name}&price=${price}&gender=${gender}`);
+  }
   
 }

@@ -1,10 +1,49 @@
 <div class="content-container">
   <h1>Doctors List</h1>
+  <div class="search-container">
+    <input type="text" 
+    placeholder="Search Doctors" 
+    class="search-input" 
+    [(ngModel)]="searchName"
+    />
+
+    <div class="gender-select">
+      <label for="gender">Gender:</label>
+      <select
+        id="gender"
+        name="gender"
+        [(ngModel)]="selectedGender"
+        class="gender-dropdown"
+      >
+        <option value="All">All</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+
+    <div class="price-range">
+      <label for="priceRange">Price Range:</label>
+      <input
+        type="range"
+        id="priceRange"
+        name="priceRange"
+        min="50"
+        max="200"
+        [(ngModel)]="priceValue"
+      />
+      <span class="price-value">{{ priceValue }}$</span>
+    </div>
+    <button class="search-button" (click)="onSearch()">Search</button>
+  </div>
   <div class="doctors-list">
     <div class="card" *ngFor="let doctor of doctors">
       <app-doctor-card [doctor]="doctor"></app-doctor-card>
     </div>
   </div>
 </div>
-<mat-paginator [length]="100" [pageSize]="10" (page)="onPageChange($event)">
+<mat-paginator
+  [length]="totalLength"
+  [pageSize]="8"
+  (page)="onPageChange($event)"
+>
 </mat-paginator>

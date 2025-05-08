@@ -2,8 +2,13 @@
   <img src="/psy-image.jpg" alt="image" />
   <div class="doctor-card-info">
     <h3>Name : {{ doctor()?.firstname }} {{ doctor()?.lastname }}</h3>
-    <h4>Title : {{ doctor()?.title }}</h4>
+    <h4>Specialization : {{ doctor()?.specialization }}</h4>
     <h4>Price: ${{ doctor()?.price }}</h4>
+    <h4>Gender: {{ doctor()?.gender }}</h4>
+    <div class="doctor-rating">
+      <span class="stars">★★★★☆</span>
+      <span class="reviews">(362 reviews)</span>
+    </div>
     <button (click)="viewDoctor()">View</button>
   </div>
 </div>

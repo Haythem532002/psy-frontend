@@ -60,3 +60,19 @@
   background-color: #0056b3;
   transform: scale(1.05); /* Slightly enlarges button on hover */
 }
+
+.doctor-rating {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.doctor-rating .stars {
+  color: #f39c12;
+  font-size: 18px;
+}
+
+.doctor-rating .reviews {
+  margin-left: 10px;
+  color: #666;
+}

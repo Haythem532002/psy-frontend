@@ -32,4 +32,18 @@ export class UserService {
       `http://localhost:7090/users/payment-history/${id}`
     );
   }
+
+  getUserById() {
+    const id = getCookie('userId');
+    return this.http.get(
+      `http://localhost:7090/users/${id}`
+    );
+  }
+
+  editProfile() {
+    const id = getCookie('userId');
+    return this.http.patch(
+      `http://localhost:7090/users/edit-profile/${id}`,{}
+    );
+  }
 }

@@ -9,8 +9,9 @@ export type Doctor = {
   gender: string;
   experienceYears: number;
   price: number;
-  title: string;
+  specialization: string;
   description: string;
   imageUrl: string;
   education: string;
+  rating: number;
 };

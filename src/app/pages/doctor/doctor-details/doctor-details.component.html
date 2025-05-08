@@ -4,7 +4,7 @@
   </div>
   <div class="doctor-main">
     <h1 class="doctor-name">{{ doctor.firstname }} {{ doctor.lastname }}</h1>
-    <p class="doctor-title">{{ doctor.title }}</p>
+    <p class="doctor-title">{{ doctor.specialization }}</p>
 
     <div class="doctor-rating">
       <span class="stars">★★★★☆</span>
@@ -16,6 +16,9 @@
     </p>
     <p class="doctor-info">
       <strong>Education:</strong> {{ doctor.education }}
+    </p>
+    <p class="doctor-info">
+      <strong>Gender:</strong> {{ doctor.gender }}
     </p>
     <p class="doctor-info"><strong>Email:</strong> {{ doctor.email }}</p>
     <p class="doctor-info"><strong>Phone:</strong> {{ doctor.phone }}</p>

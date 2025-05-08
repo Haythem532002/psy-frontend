@@ -6,6 +6,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DoctorCardComponent } from '../../../components/doctor-card/doctor-card.component';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-doctor-list',
@@ -15,6 +18,9 @@ import { DoctorCardComponent } from '../../../components/doctor-card/doctor-card
     DoctorCardComponent,
     MatPaginatorModule,
     CommonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
   ],
   templateUrl: './doctor-list.component.html',
   styleUrl: './doctor-list.component.css',
@@ -26,13 +32,41 @@ export class DoctorListComponent {
   ) {}
   page = 1;
   size = 8;
+  totalLength = 0;
+  priceValue: number = 50;
 
+  searchName: string | null = null;
+
+  selectedGender: string = 'all';
   doctors: Doctor[] = [];
+
+  onSearch() {
+    this.doctorService.searchDoctorPage(this.page, this.size, this.searchName, this.priceValue, this.selectedGender).subscribe({
+      next: (data: any) => {
+        this.doctors = data.content;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+
+  }
 
   search() {
     this.doctorService.getDoctorByPage(this.page, this.size).subscribe({
       next: (data: any) => {
         this.doctors = data.content;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+  }
+
+  getDoctorCount() {
+    this.doctorService.getDoctosCount().subscribe({
+      next: (data: any) => {
+        this.totalLength = data;
       },
       error: (error) => {
         console.error(error);
@@ -46,9 +80,9 @@ export class DoctorListComponent {
   }
 
   ngOnInit() {
+    this.getDoctorCount();
     this.search();
     const email = window.history.state.email;
-    console.log('Here ', email);
     this.userService.saveUserId(email);
   }
 }
