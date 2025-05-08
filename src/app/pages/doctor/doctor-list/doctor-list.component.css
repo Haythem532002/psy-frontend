@@ -22,7 +22,7 @@
   }
 }
 
-@media screen and (min-width: 731px) and (max-width: 922px) {
+@media screen and (min-width: 731px) and (max-width: 1500px) {
   .card {
     width: 50%;
   }

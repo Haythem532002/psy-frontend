@@ -20,7 +20,6 @@ export class AppointmentListComponent implements OnInit {
     this.userService.getAvailableAppointments().subscribe({
       next: (response: Appointment[]) => {
         this.appointments$ = response;
-        console.log(this.appointments$);
       },
     });
   }

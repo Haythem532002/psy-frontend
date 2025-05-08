@@ -17,11 +17,18 @@ h1 {
   background-color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .payment-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.payment-details {
+  flex: 1;
 }
 
 .payment-details h3 {
@@ -40,14 +47,9 @@ h1 {
   color: #000;
 }
 
-.payment-details {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.payment-item {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.payment-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2aa7ff;
+  text-align: right;
 }

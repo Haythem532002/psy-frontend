@@ -1,46 +1,62 @@
 .doctor-card {
-  background-color: #f8f9fa;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* Changed to pure white for a cleaner look */
+  border-radius: 20px; /* Increased border radius for a softer look */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
   overflow: hidden;
-  margin: 10px;
+  margin: 15px; /* Slightly increased margin for better spacing */
   display: flex;
   flex-direction: column;
   height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added hover effect */
+}
+
+.doctor-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 .doctor-card img {
   width: 100%;
   object-fit: cover;
+  border-bottom: 5px solid #007bff; /* Added a border to separate image */
 }
 
 .doctor-card-info {
-  padding: 15px;
-  text-align: center;
+  padding: 20px; /* Increased padding for better spacing */
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures content is spaced evenly */
 }
 
 .doctor-card h3 {
   margin: 10px 0;
-  font-size: 1.5em;
-  font-weight: normal;
+  font-size: 1.4em; /* Slightly increased font size */
+  font-weight: bold; /* Made the name bold */
+  color: #333; /* Darker color for better readability */
 }
 
 .doctor-card h4 {
   margin: 5px 0;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 1.2em; /* Adjusted font size */
+  color: #555; /* Softer color for subtitle */
 }
 
 .doctor-card button {
-  margin-top: 10px;
-  padding: 10px 20px;
+  margin-top: auto; /* Ensures button is always at the bottom */
+  padding: 12px 25px; /* Adjusted padding for better appearance */
   border: none;
-  border-radius: 5px;
+  border-radius: 25px; /* Fully rounded button */
   background-color: #007bff;
   color: white;
+  font-size: 1em; /* Increased font size */
+  cursor: pointer;
+  align-self: center; /* Centered button for all cards */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added hover effect */
 }
 
 .doctor-card button:hover {
   background-color: #0056b3;
+  transform: scale(1.05); /* Slightly enlarges button on hover */
 }

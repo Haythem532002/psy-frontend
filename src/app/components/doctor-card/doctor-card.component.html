@@ -3,7 +3,7 @@
   <div class="doctor-card-info">
     <h3>Name : {{ doctor()?.firstname }} {{ doctor()?.lastname }}</h3>
     <h4>Title : {{ doctor()?.title }}</h4>
-    <h4>Price: {{ doctor()?.price }}</h4>
+    <h4>Price: ${{ doctor()?.price }}</h4>
     <button (click)="viewDoctor()">View</button>
   </div>
 </div>

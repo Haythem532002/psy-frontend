@@ -13,6 +13,7 @@
           {{ payment.appointmentDate | date : "medium" }}
         </p>
         <p><strong>Appointment Type:</strong> {{ payment.appointmentType }}</p>
+        <p><strong>Price:</strong> ${{ payment.price }}</p>
       </div>
     </div>
     <p *ngIf="payments.length === 0">No payment history available.</p>
