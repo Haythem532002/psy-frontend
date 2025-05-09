@@ -33,7 +33,7 @@ export class DoctorListComponent {
   page = 0;
   size = 8;
   totalLength = 0;
-  priceValue: number = 50;
+  priceValue: number = 200;
 
   searchName: string | null = '';
 
@@ -41,9 +41,6 @@ export class DoctorListComponent {
   doctors: Doctor[] = [];
 
   onSearch() {
-    console.log(this.searchName);
-    console.log(this.priceValue);
-    console.log(this.selectedGender);
     if (
       this.searchName === '' &&
       this.priceValue === 50 &&
@@ -93,7 +90,15 @@ export class DoctorListComponent {
 
   onPageChange(event: any) {
     this.page = event.pageIndex + 1;
-    this.search();
+    if (
+      this.priceValue != 200 ||
+      this.searchName != '' ||
+      this.selectedGender != 'All'
+    ) {
+      this.onSearch();
+    } else {
+      this.search();
+    }
   }
 
   ngOnInit() {

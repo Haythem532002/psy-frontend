@@ -20,13 +20,26 @@
       </li>
     </ul>
     <div class="user-info">
-      <div class="notification">
+      <div class="notification" (click)="toggleNotificationList()">
         <mat-icon
           aria-hidden="false"
           aria-label="Example home icon"
           fontIcon="notifications"
           class="white-icon"
         ></mat-icon>
+        <div class="notification-list" *ngIf="notificationListVisible">
+          <ul>
+            <li *ngFor="let notification of notifications">
+              <div class="notification-item">
+                <h4 class="notification-title">{{ notification.title }}</h4>
+                <p class="notification-description">
+                  {{ notification.description }}
+                </p>
+                <span class="notification-date">{{ notification.date }}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="user-details" (click)="toggleMenu()">
         <img src="/settings-icon.png" alt="settings" style="max-width: 100%" />
