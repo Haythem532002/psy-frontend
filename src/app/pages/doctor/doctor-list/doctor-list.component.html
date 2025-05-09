@@ -14,8 +14,9 @@
         name="gender"
         [(ngModel)]="selectedGender"
         class="gender-dropdown"
+      
       >
-        <option value="All">All</option>
+        <option value="All" selected>All</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
       </select>
@@ -36,6 +37,9 @@
     <button class="search-button" (click)="onSearch()">Search</button>
   </div>
   <div class="doctors-list">
+    @if(doctors.length === 0) {
+      <h3>Not Doctors Found</h3>
+    }
     <div class="card" *ngFor="let doctor of doctors">
       <app-doctor-card [doctor]="doctor"></app-doctor-card>
     </div>

@@ -19,8 +19,23 @@ export class DoctorService {
     return this.http.get(this.apiUrl + '/count');
   }
 
-  searchDoctorPage(page: number, size: number,name: any,price:number,gender:string) {
-    return this.http.get(this.apiUrl + `/search?page=${page}&size=${size}&name=${name}&price=${price}&gender=${gender}`);
+  searchDoctorPage(
+    page: number,
+    size: number,
+    name: any,
+    price: number,
+    gender: string
+  ) {
+    if (name === '') {
+      return this.http.get(
+        this.apiUrl +
+          `/search?page=${page}&size=${size}&name=&price=${price}&gender=${gender}`
+      );
+    } else {
+      return this.http.get(
+        this.apiUrl +
+          `/search?page=${page}&size=${size}&name=${name}&price=${price}&gender=${gender}`
+      );
+    }
   }
-  
 }

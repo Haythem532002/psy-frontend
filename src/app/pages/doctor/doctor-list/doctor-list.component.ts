@@ -30,26 +30,43 @@ export class DoctorListComponent {
     private doctorService: DoctorService,
     private userService: UserService
   ) {}
-  page = 1;
+  page = 0;
   size = 8;
   totalLength = 0;
   priceValue: number = 50;
 
-  searchName: string | null = null;
+  searchName: string | null = '';
 
-  selectedGender: string = 'all';
+  selectedGender: string = 'All';
   doctors: Doctor[] = [];
 
   onSearch() {
-    this.doctorService.searchDoctorPage(this.page, this.size, this.searchName, this.priceValue, this.selectedGender).subscribe({
-      next: (data: any) => {
-        this.doctors = data.content;
-      },
-      error: (error) => {
-        console.error(error);
-      },
-    });
-
+    console.log(this.searchName);
+    console.log(this.priceValue);
+    console.log(this.selectedGender);
+    if (
+      this.searchName === '' &&
+      this.priceValue === 50 &&
+      this.selectedGender === 'All'
+    ) {
+      return;
+    }
+    this.doctorService
+      .searchDoctorPage(
+        this.page,
+        this.size,
+        this.searchName,
+        this.priceValue,
+        this.selectedGender
+      )
+      .subscribe({
+        next: (data: any) => {
+          this.doctors = data.content;
+        },
+        error: (error) => {
+          console.error(error);
+        },
+      });
   }
 
   search() {
