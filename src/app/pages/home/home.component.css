@@ -176,13 +176,18 @@ ul {
   font-size: 20;
   width: 700px;
 }
-
+.feedback-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
 .feedbacks {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
-  margin-top: 150px;
+  margin-top: 60px;
 }
 
 .contact {
@@ -225,7 +230,7 @@ ul {
 .contact-form input {
   display: block;
   padding: 8px 15px;
-  border-radius: 27px;
+  border-radius: 8px;
   outline: none;
   border: 1px solid gray;
   width: 100%;
@@ -233,7 +238,7 @@ ul {
 .contact-form textarea {
   display: block;
   padding: 8px 15px;
-  border-radius: 27px;
+  border-radius: 8px;
   outline: none;
   border: 1px solid gray;
   width: 100%;
