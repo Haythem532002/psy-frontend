@@ -9,6 +9,7 @@ import { DoctorCardComponent } from '../../../components/doctor-card/doctor-card
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { NotificationService } from '../../../services/notification/notification.service';
 
 @Component({
   selector: 'app-doctor-list',
@@ -28,7 +29,8 @@ import { MatSelectModule } from '@angular/material/select';
 export class DoctorListComponent {
   constructor(
     private doctorService: DoctorService,
-    private userService: UserService
+    private userService: UserService,
+    private notificationService: NotificationService
   ) {}
   page = 0;
   size = 8;
@@ -102,6 +104,7 @@ export class DoctorListComponent {
   }
 
   ngOnInit() {
+    this.notificationService.connect();
     this.getDoctorCount();
     this.search();
     const email = window.history.state.email;
