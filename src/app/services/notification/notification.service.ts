@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Client, Message } from '@stomp/stompjs';
+import * as Stomp from 'stompjs';
 import SockJS from 'sockjs-client';
 
 @Injectable({
@@ -9,24 +9,22 @@ export class NotificationService {
   private stompClient: any;
 
   connect() {
-    this.stompClient = new Client({
-      brokerURL: '', // fallback to SockJS
-      webSocketFactory: () => new SockJS('http://localhost:8080/psy-websocket'),
-      reconnectDelay: 5000,
-    });
+    const socket = new SockJS('http://localhost:7090/psy-websocket');
+    this.stompClient = Stomp.over(socket);
 
-    this.stompClient.onConnect = () => {
-      this.stompClient.subscribe('/topic/psy', (message: Message) => {
+    this.stompClient.connect({}, () => {
+      this.stompClient.subscribe('/topic/psy', (message:any) => {
         const notification = JSON.parse(message.body);
         alert(notification.message);
       });
-    };
-
-    this.stompClient.activate();
+    });
   }
+
   disconnect() {
     if (this.stompClient) {
-      this.stompClient.deactivate();
+      this.stompClient.disconnect(() => {
+        console.log('Disconnected');
+      });
     }
   }
 }
