@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { SplitDateTime } from '../../utils/dateUtils';
 
 @Component({
   selector: 'app-appointment-card',
@@ -20,10 +21,9 @@ export class AppointmentCardComponent implements OnInit {
 
   extractDateTime(): void {
     if (this.appointment?.dateTime) {
-      const [date, time] = this.appointment.dateTime.split('T');
+      const [date, time] = SplitDateTime(this.appointment.dateTime);
       this.date = date;
       this.time = time;
     }
   }
-
 }

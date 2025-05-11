@@ -10,3 +10,7 @@ export function getFirstAndLastDayOfWeek(): [Date, Date] {
 
   return [firstDayOfWeek, lastDayOfWeek];
 }
+
+export function SplitDateTime(dateTime: string): string[] {
+  return dateTime.split('T');
+}

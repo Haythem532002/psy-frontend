@@ -1,0 +1,21 @@
+<div class="notification" (click)="toggleNotificationList()">
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    fontIcon="notifications"
+    class="white-icon"
+  ></mat-icon>
+  <div class="notification-list" *ngIf="notificationListVisible">
+    <ul>
+      <li *ngFor="let notification of notifications">
+        <div class="notification-item">
+          <h4 class="notification-title">{{ notification.title }}</h4>
+          <p class="notification-description">
+            {{ notification.content }}
+          </p>
+          <span class="notification-date">{{ notification.createdAt }}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
