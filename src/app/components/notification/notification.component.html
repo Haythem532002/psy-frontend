@@ -5,6 +5,7 @@
     fontIcon="notifications"
     class="white-icon"
   ></mat-icon>
+  <div *ngIf="unreadNotifications" class="notification-dot"></div>
   <div class="notification-list" *ngIf="notificationListVisible">
     <ul>
       <li *ngFor="let notification of notifications">
@@ -13,7 +14,9 @@
           <p class="notification-description">
             {{ notification.content }}
           </p>
-          <span class="notification-date">{{ notification.createdAt }}</span>
+          <span class="notification-date">{{
+            notification.createdAt | date
+          }}</span>
         </div>
       </li>
     </ul>

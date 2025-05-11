@@ -9,6 +9,17 @@
   position: relative;
   cursor: pointer;
 }
+
+.notification-dot {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}
+
 .white-icon {
   color: white;
 }
@@ -23,6 +34,7 @@
   width: 350px;
   height: 400px;
   z-index: 1000;
+  overflow: scroll;
 }
 
 .notification-list ul {
