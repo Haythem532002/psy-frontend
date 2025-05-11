@@ -22,14 +22,13 @@ export class NotificationService {
     this.stompClient.connect({}, () => {
       this.stompClient.subscribe('/topic/psy', (message: any) => {
         const notification = JSON.parse(message.body);
-        alert(notification.message);
-        this.hasNewNotificationSubject.next(true); // Set global state to true
+        this.hasNewNotificationSubject.next(true);
       });
     });
   }
 
   markNotificationsAsRead() {
-    this.hasNewNotificationSubject.next(false); // Set global state to false
+    this.hasNewNotificationSubject.next(false);
   }
 
   getNotifications(): Observable<Notification[]> {

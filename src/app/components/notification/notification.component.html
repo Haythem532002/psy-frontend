@@ -5,7 +5,7 @@
     fontIcon="notifications"
     class="white-icon"
   ></mat-icon>
-  <div *ngIf="unreadNotifications" class="notification-dot"></div>
+  <div *ngIf="hasNewNotification" class="notification-dot"></div>
   <div class="notification-list" *ngIf="notificationListVisible">
     <ul>
       <li *ngFor="let notification of notifications">

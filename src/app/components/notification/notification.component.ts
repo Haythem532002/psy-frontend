@@ -29,7 +29,7 @@ export class NotificationComponent {
   toggleNotificationList() {
     this.notificationListVisible = !this.notificationListVisible;
     if (this.notificationListVisible) {
-      this.notificationService.markNotificationsAsRead(); // Mark as read when opened
+      this.notificationService.markNotificationsAsRead(); 
     }
   }
 
