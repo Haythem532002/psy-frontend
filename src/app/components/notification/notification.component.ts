@@ -17,19 +17,19 @@ export class NotificationComponent {
   hasNewNotification: boolean = false;
 
   notifications!: Notification[];
-  unreadNotifications: boolean = false; // Track if there are unread notifications
+  unreadNotifications: boolean = false;
 
   ngOnInit() {
     this.getAllNotifications();
     this.notificationService.hasNewNotification$.subscribe((state) => {
-      this.hasNewNotification = state; // Subscribe to global state
+      this.hasNewNotification = state;
     });
   }
 
   toggleNotificationList() {
     this.notificationListVisible = !this.notificationListVisible;
     if (this.notificationListVisible) {
-      this.notificationService.markNotificationsAsRead(); 
+      this.notificationService.markNotificationsAsRead();
     }
   }
 
@@ -49,7 +49,7 @@ export class NotificationComponent {
           (a: any, b: any) =>
             new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
         );
-        this.unreadNotifications = this.notifications.length > 0; // Set unread notifications flag
+        this.unreadNotifications = this.notifications.length > 0;
       },
       error: (error) => {
         console.error('Error fetching notifications:', error);
