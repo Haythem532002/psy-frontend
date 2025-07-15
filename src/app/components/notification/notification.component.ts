@@ -3,7 +3,7 @@ import { Component, HostListener } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { NotificationService } from '../../services/notification/notification.service';
 import { SplitDateTime } from '../../utils/dateUtils';
-
+import { Notification } from '../../models/Notification';
 @Component({
   selector: 'app-notification',
   standalone: true,

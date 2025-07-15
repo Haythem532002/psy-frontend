@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as Stomp from 'stompjs';
+import { Client, Message } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
@@ -9,22 +9,27 @@ import { Notification } from '../../models/Notification';
   providedIn: 'root',
 })
 export class NotificationService {
-  private stompClient: any;
+  private stompClient!: Client;
   private hasNewNotificationSubject = new BehaviorSubject<boolean>(false);
   hasNewNotification$ = this.hasNewNotificationSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
   connect() {
-    const socket = new SockJS('http://localhost:7090/psy-websocket');
-    this.stompClient = Stomp.over(socket);
+    this.stompClient = new Client({
+      brokerURL: '', // fallback to SockJS
+      webSocketFactory: () => new SockJS('http://localhost:7090/psy-websocket'),
+      reconnectDelay: 5000,
+    });
 
-    this.stompClient.connect({}, () => {
-      this.stompClient.subscribe('/topic/psy', (message: any) => {
+    this.stompClient.onConnect = () => {
+      this.stompClient.subscribe('/topic/psy', (message: Message) => {
         const notification = JSON.parse(message.body);
         this.hasNewNotificationSubject.next(true);
       });
-    });
+    };
+
+    this.stompClient.activate();
   }
 
   markNotificationsAsRead() {
@@ -37,9 +42,7 @@ export class NotificationService {
 
   disconnect() {
     if (this.stompClient) {
-      this.stompClient.disconnect(() => {
-        console.log('Disconnected');
-      });
+      this.stompClient.deactivate();
     }
   }
 }
