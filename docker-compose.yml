@@ -1,8 +1,7 @@
 services:
   frontend:
     build:
-      contenxt: .
-      name: Dockerfile
+      context: .
     image: haythem22/psy-frontend
     container_name: psy-frontend
     
