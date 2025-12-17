@@ -20,9 +20,8 @@ jobs:
       - name: Login to Docker
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ vars.DOCKER_USERNAME }}" --password-stdin
 
-
       - name: Build Docker Image
-        run: docker-compose build
+        run: docker compose build
 
       - name: Push to Docker Hub
-        run: docker-compose push
+        run: docker compose push
