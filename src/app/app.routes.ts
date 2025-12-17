@@ -33,6 +33,7 @@ export const routes: Routes = [
     path: 'home',
     component: DoctorHomeComponent,
     canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       { path: '', redirectTo: 'doctor-list', pathMatch: 'full' },
       { path: 'doctor-list', component: DoctorListComponent },
